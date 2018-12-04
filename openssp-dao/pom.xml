@@ -8,4 +8,10 @@
   <artifactId>openssp-dao</artifactId>
   <name>openssp-dao</name>
   <description>the dao module for openssp</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.mybatis</groupId>
+  		<artifactId>mybatis</artifactId>
+  	</dependency>
+  </dependencies>
 </project>
