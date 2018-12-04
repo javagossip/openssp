@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>ai.houyi</groupId>
 		<artifactId>houyi-parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.3</version>
 	</parent>
 
 	<modules>
