@@ -15,10 +15,27 @@
  */
 package ai.houyi.openssp.core.service;
 
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.model.Publisher;
+import ai.houyi.openssp.model.example.PublisherExample;
+
 /**
+ * publisher管理
+ * 
  * @author weiping wang
  *
  */
 public interface PublisherService {
 
+	void saveOrUpdatePublisher(Publisher publisher);
+
+	void deletePublisher(int publisherId);
+
+	Publisher loadPublisher(int publisherId);
+
+	PageResult<Publisher> listPublishers(int pageNo);
+
+	PageResult<Publisher> listPublishers(int pageNo, int pageSize);
+
+	PageResult<Publisher> listPublishers(int pageNo, int pageSize, PublisherExample example);
 }

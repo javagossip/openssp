@@ -15,10 +15,24 @@
  */
 package ai.houyi.openssp.core.service;
 
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.model.MediaFloor;
+import ai.houyi.openssp.model.example.MediaFloorExample;
+
 /**
  * @author weiping wang
  *
  */
 public interface MediaFloorService {
+	void saveOrUpdateMediaFloor(MediaFloor mediaFloor);
 
+	void deleteMediaFloor(int mediaFloorId);
+
+	MediaFloor loadMediaFloor(int mediaFloorId);
+
+	PageResult<MediaFloor> listMediaFloors(int pageNo, int pageSize, MediaFloorExample _example);
+	
+	PageResult<MediaFloor> listMediaFloors(int pageNo,int pageSize);
+	
+	PageResult<MediaFloor> listMediaFloors(int pageNo);
 }

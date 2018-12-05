@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 The OpenAds Project
+ * Copyright 2017 The OpenDSP Project
  *
  * The OpenDSP Project licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -15,24 +15,16 @@
  */
 package ai.houyi.openssp.core.service;
 
-import ai.houyi.openads.commons.PageResult;
-import ai.houyi.openssp.model.TrafficAttr;
-import ai.houyi.openssp.model.example.TrafficAttrExample;
+import java.util.List;
+
+import ai.houyi.openssp.model.AdPosition;
 
 /**
- * @author weiping wang
- *
+ * 
+ * @author wangwp
  */
-public interface TrafficAttrService {
-	void saveOrUpdateTrafficAttr(TrafficAttr trafficAttr);
-
-	void deleteTrafficAttr(int trafficAttrId);
-
-	TrafficAttr loadTrafficAttr(int trafficAttrId);
-
-	PageResult<TrafficAttr> listTrafficAttrs(int pageNo, int pageSize, TrafficAttrExample _example);
-
-	PageResult<TrafficAttr> listTrafficAttrs(int pageNo, int pageSize);
-
-	PageResult<TrafficAttr> listTrafficAttrs(int pageNo);
+public interface AppAdPositionService {
+	void setAppAdPositions(int appId, List<Integer> adPositionIds);
+	
+	List<AdPosition> listAppAdPositions(int appId);
 }

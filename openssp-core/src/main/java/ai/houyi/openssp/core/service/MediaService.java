@@ -15,10 +15,27 @@
  */
 package ai.houyi.openssp.core.service;
 
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.model.Media;
+import ai.houyi.openssp.model.example.MediaExample;
+
 /**
+ * 媒体管理
+ * 
  * @author weiping wang
  *
  */
 public interface MediaService {
+	void saveOrUpdateMedia(Media media);
+
+	void deleteMedia(int mediaId);
+
+	Media loadMedia(int mediaId);
+
+	PageResult<Media> listMedias(int pageNo, int pageSize, MediaExample _example);
+
+	PageResult<Media> listMedias(int pageNo);
+
+	PageResult<Media> listMedias(int pageNo, int pageSize);
 
 }

@@ -15,10 +15,18 @@
  */
 package ai.houyi.openssp.core.service;
 
+import java.util.List;
+
+import ai.houyi.openssp.model.MediaTrafficAttr;
+
 /**
  * @author weiping wang
  *
  */
 public interface MediaTrafficAttrService {
+	void addTrafficAttrsToMedia(int mediaId, List<Integer> trafficAttrIds);
 
+	List<MediaTrafficAttr> listTrafficAttrsByMediaId(int mediaId);
+
+	void setMediaTrafficAttrValues(int mediaTrafficAttrId, List<String> enumValues);
 }

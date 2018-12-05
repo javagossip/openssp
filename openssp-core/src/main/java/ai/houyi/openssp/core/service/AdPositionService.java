@@ -15,10 +15,24 @@
  */
 package ai.houyi.openssp.core.service;
 
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.model.AdPosition;
+import ai.houyi.openssp.model.example.AdPositionExample;
+
 /**
  * @author weiping wang
  *
  */
 public interface AdPositionService {
+	void saveOrUpdateAdPosition(AdPosition adPosition);
 
+	void deleteAdPosition(int adPositionId);
+
+	AdPosition loadAdPosition(int adPositionId);
+
+	PageResult<AdPosition> listAdPositions(int pageNo, int pageSize, AdPositionExample _example);
+
+	PageResult<AdPosition> listAdPositions(int pageNo, int pageSize);
+
+	PageResult<AdPosition> listAdPositions(int pageNo);
 }

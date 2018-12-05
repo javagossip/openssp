@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 The OpenAds Project
+ * Copyright 2017 The OpenDSP Project
  *
  * The OpenDSP Project licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -13,28 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.core.service;
-
-import ai.houyi.openads.commons.PageResult;
-import ai.houyi.openssp.model.App;
-import ai.houyi.openssp.model.example.AppExample;
-
 /**
- * App管理
  * 
- * @author weiping wang
- *
+ * @author wangwp
  */
-public interface AppService {
-	void saveOrUpdateApp(App app);
-
-	void deleteApp(int appId);
-
-	App loadApp(int appId);
-
-	PageResult<App> listApps(int pageNo, int pageSize, AppExample _example);
-	
-	PageResult<App> listApps(int pageNo, int pageSize);
-	
-	PageResult<App> listApps(int pageNo);
-}
+package ai.houyi.openssp.router;
