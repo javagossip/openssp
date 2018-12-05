@@ -15,8 +15,17 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.core.service.PublisherService;
+import ai.houyi.openssp.model.Publisher;
 import mobi.f2time.dorado.rest.annotation.Controller;
+import mobi.f2time.dorado.rest.annotation.GET;
+import mobi.f2time.dorado.rest.annotation.POST;
 import mobi.f2time.dorado.rest.annotation.Path;
+import mobi.f2time.dorado.rest.annotation.PathVariable;
+import mobi.f2time.dorado.rest.annotation.RequestParam;
 
 /**
  * @author weiping wang
@@ -25,5 +34,30 @@ import mobi.f2time.dorado.rest.annotation.Path;
 @Controller
 @Path("/publisher")
 public class PublisherController {
+	@Autowired
+	private PublisherService publisherService;
 
+	@POST
+	@Path
+	public void saveOrUpdatePublisher(Publisher publisher) {
+		publisherService.saveOrUpdatePublisher(publisher);
+	}
+
+	@GET
+	@Path("/{publisherId}")
+	public Publisher getPublisher(@PathVariable int publisherId) {
+		return publisherService.loadPublisher(publisherId);
+	}
+
+	@GET
+	@Path
+	public PageResult<Publisher> listPublishers(@RequestParam("p") int pageNo, @RequestParam("s") int pageSize) {
+		return publisherService.listPublishers(pageNo, pageSize);
+	}
+	
+	@POST
+	@Path
+	public void deletePublisher(@PathVariable int publisherId) {
+		publisherService.deletePublisher(publisherId);
+	}
 }

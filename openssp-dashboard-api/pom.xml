@@ -13,5 +13,10 @@
   		<groupId>ai.houyi</groupId>
   		<artifactId>dorado-spring-boot-starter</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>ai.houyi</groupId>
+  		<artifactId>openssp-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>
