@@ -15,8 +15,18 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
-import mobi.f2time.dorado.rest.annotation.Controller;
-import mobi.f2time.dorado.rest.annotation.Path;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.GET;
+import ai.houyi.dorado.rest.annotation.POST;
+import ai.houyi.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.PathVariable;
+import ai.houyi.dorado.rest.annotation.RequestBody;
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.core.service.MediaService;
+import ai.houyi.openssp.dashboard.model.MediaSearchReq;
+import ai.houyi.openssp.model.Media;
 
 /**
  * @author weiping wang
@@ -25,5 +35,30 @@ import mobi.f2time.dorado.rest.annotation.Path;
 @Controller
 @Path("/media")
 public class MediaController {
+	@Autowired
+	private MediaService mediaService;
 
+	@POST
+	@Path
+	public void saveOrUpdateMedia(@RequestBody Media media) {
+		mediaService.saveOrUpdateMedia(media);
+	}
+
+	@POST
+	@Path("/{mediaId}")
+	public void deleteMedia(@PathVariable int mediaId) {
+		mediaService.deleteMedia(mediaId);
+	}
+
+	@GET
+	@Path("/{mediaId}")
+	public Media getMedia(@PathVariable int mediaId) {
+		return mediaService.loadMedia(mediaId);
+	}
+
+	@POST
+	@Path("/list")
+	public PageResult<Media> listMedias(@RequestBody MediaSearchReq req) {
+		return mediaService.listMedias(req.getPageNo(), req.getPageSize(), req.toExample());
+	}
 }

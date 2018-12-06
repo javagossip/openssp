@@ -15,8 +15,20 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
-import mobi.f2time.dorado.rest.annotation.Controller;
-import mobi.f2time.dorado.rest.annotation.Path;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.GET;
+import ai.houyi.dorado.rest.annotation.POST;
+import ai.houyi.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.PathVariable;
+import ai.houyi.dorado.rest.annotation.RequestBody;
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.core.service.TrafficAttrService;
+import ai.houyi.openssp.dashboard.model.TrafficAttrSearchReq;
+import ai.houyi.openssp.model.TrafficAttr;
 
 /**
  * @author weiping wang
@@ -25,5 +37,37 @@ import mobi.f2time.dorado.rest.annotation.Path;
 @Controller
 @Path("/trafficattr")
 public class TrafficAttrController {
+	@Autowired
+	private TrafficAttrService trafficAttrService;
 
+	@POST
+	@Path
+	public void saveOrUpdateTrafficAttr(@RequestBody TrafficAttr trafficAttr) {
+		trafficAttrService.saveOrUpdateTrafficAttr(trafficAttr);
+	}
+
+	@GET
+	@Path("/{trafficAttrId}")
+	public TrafficAttr getTrafficAttr(@PathVariable int trafficAttrId) {
+		return trafficAttrService.loadTrafficAttr(trafficAttrId);
+	}
+
+	@POST
+	@Path("/list")
+	public PageResult<TrafficAttr> listTrafficAttrs(@RequestBody TrafficAttrSearchReq searchReq) {
+		return trafficAttrService.listTrafficAttrs(searchReq.getPageNo(), searchReq.getPageSize(),
+				searchReq.toExample());
+	}
+
+	@POST
+	@Path("/{trafficAttrId}")
+	public void deleteTrafficAttr(int trafficAttrId) {
+		trafficAttrService.deleteTrafficAttr(trafficAttrId);
+	}
+
+	@POST
+	@Path("/delete")
+	public void deleteTrafficAttrs(List<Integer> trafficAttrIds) {
+		trafficAttrService.batchDeleteTrafficAttrs(trafficAttrIds);
+	}
 }

@@ -15,6 +15,8 @@
  */
 package ai.houyi.openssp.core.service;
 
+import java.util.List;
+
 import ai.houyi.openads.commons.PageResult;
 import ai.houyi.openssp.model.TrafficAttr;
 import ai.houyi.openssp.model.example.TrafficAttrExample;
@@ -35,4 +37,6 @@ public interface TrafficAttrService {
 	PageResult<TrafficAttr> listTrafficAttrs(int pageNo, int pageSize);
 
 	PageResult<TrafficAttr> listTrafficAttrs(int pageNo);
+
+	void batchDeleteTrafficAttrs(List<Integer> trafficAttrIds);
 }

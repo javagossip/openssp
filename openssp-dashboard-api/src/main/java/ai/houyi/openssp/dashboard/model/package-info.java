@@ -13,23 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.dashboard;
-
-import org.springframework.boot.SpringApplication;
-
-import ai.houyi.dorado.springboot.DoradoSpringBootApplication;
-
 /**
  * @author weiping wang
  *
  */
-@DoradoSpringBootApplication
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		
-		//PrintStream.println();
-		System.out.println();
-	}
-}
+package ai.houyi.openssp.dashboard.model;

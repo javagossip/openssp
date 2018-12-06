@@ -15,8 +15,9 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
-import mobi.f2time.dorado.rest.annotation.Controller;
-import mobi.f2time.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.POST;
+import ai.houyi.dorado.rest.annotation.Path;
 
 /**
  * @author weiping wang
@@ -25,5 +26,10 @@ import mobi.f2time.dorado.rest.annotation.Path;
 @Controller
 @Path("/trafficattr/media")
 public class MediaTrafficAttrController {
-
+	
+	@POST
+	@Path
+	public void addTrafficAttrsToMedia() {
+		
+	}
 }

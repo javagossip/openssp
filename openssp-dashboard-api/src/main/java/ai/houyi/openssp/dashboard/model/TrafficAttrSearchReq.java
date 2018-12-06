@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 The OpenAds Project
  *
- * The OpenDSP Project licenses this file to you under the Apache License,
+ * The OpenAds Project licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at:
  *
@@ -13,23 +13,31 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.dashboard;
+package ai.houyi.openssp.dashboard.model;
 
-import org.springframework.boot.SpringApplication;
+import org.apache.commons.lang3.StringUtils;
 
-import ai.houyi.dorado.springboot.DoradoSpringBootApplication;
+import ai.houyi.openssp.model.example.TrafficAttrExample;
 
 /**
  * @author weiping wang
  *
  */
-@DoradoSpringBootApplication
-public class Application {
+public class TrafficAttrSearchReq extends SearchReq {
+	private String name;
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		
-		//PrintStream.println();
-		System.out.println();
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public TrafficAttrExample toExample() {
+		if (StringUtils.isNotBlank(name)) {
+			return TrafficAttrExample.newAndCreateCriteria().andNameLike("%" + name + "%").example();
+		}
+		return null;
 	}
 }

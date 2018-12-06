@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 The OpenAds Project
  *
- * The OpenDSP Project licenses this file to you under the Apache License,
+ * The OpenAds Project licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at:
  *
@@ -13,23 +13,29 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.dashboard;
-
-import org.springframework.boot.SpringApplication;
-
-import ai.houyi.dorado.springboot.DoradoSpringBootApplication;
+package ai.houyi.openssp.dashboard.model;
 
 /**
  * @author weiping wang
  *
  */
-@DoradoSpringBootApplication
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		
-		//PrintStream.println();
-		System.out.println();
+public class SearchReq {
+	protected int pageNo;
+	protected int pageSize;
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+	
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+	
+	public int getPageSize() {
+		return pageSize;
+	}
+	
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 }

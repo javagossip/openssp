@@ -79,4 +79,9 @@ public class TrafficAttrServiceImpl implements TrafficAttrService {
 		return listTrafficAttrs(pageNo, Constants.DEFAULT_PAGE_SIZE, null);
 	}
 
+	@Override
+	public void batchDeleteTrafficAttrs(List<Integer> trafficAttrIds) {
+		TrafficAttrExample example = TrafficAttrExample.newAndCreateCriteria().andIdIn(trafficAttrIds).example();
+		trafficAttrMapper.deleteByExample(example);
+	}
 }

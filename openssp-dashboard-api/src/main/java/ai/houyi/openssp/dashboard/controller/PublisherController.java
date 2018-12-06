@@ -17,15 +17,16 @@ package ai.houyi.openssp.dashboard.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.GET;
+import ai.houyi.dorado.rest.annotation.POST;
+import ai.houyi.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.PathVariable;
+import ai.houyi.dorado.rest.annotation.RequestBody;
 import ai.houyi.openads.commons.PageResult;
 import ai.houyi.openssp.core.service.PublisherService;
+import ai.houyi.openssp.dashboard.model.PublisherSearchReq;
 import ai.houyi.openssp.model.Publisher;
-import mobi.f2time.dorado.rest.annotation.Controller;
-import mobi.f2time.dorado.rest.annotation.GET;
-import mobi.f2time.dorado.rest.annotation.POST;
-import mobi.f2time.dorado.rest.annotation.Path;
-import mobi.f2time.dorado.rest.annotation.PathVariable;
-import mobi.f2time.dorado.rest.annotation.RequestParam;
 
 /**
  * @author weiping wang
@@ -39,7 +40,7 @@ public class PublisherController {
 
 	@POST
 	@Path
-	public void saveOrUpdatePublisher(Publisher publisher) {
+	public void saveOrUpdatePublisher(@RequestBody Publisher publisher) {
 		publisherService.saveOrUpdatePublisher(publisher);
 	}
 
@@ -49,14 +50,14 @@ public class PublisherController {
 		return publisherService.loadPublisher(publisherId);
 	}
 
-	@GET
-	@Path
-	public PageResult<Publisher> listPublishers(@RequestParam("p") int pageNo, @RequestParam("s") int pageSize) {
-		return publisherService.listPublishers(pageNo, pageSize);
+	@POST
+	@Path("/list")
+	public PageResult<Publisher> listPublishers(@RequestBody PublisherSearchReq req) {
+		return publisherService.listPublishers(req.getPageNo(), req.getPageSize(),req.toExample());
 	}
 	
 	@POST
-	@Path
+	@Path("/{publisherId}")
 	public void deletePublisher(@PathVariable int publisherId) {
 		publisherService.deletePublisher(publisherId);
 	}

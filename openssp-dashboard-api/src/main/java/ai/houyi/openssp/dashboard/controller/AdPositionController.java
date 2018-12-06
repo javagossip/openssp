@@ -15,8 +15,8 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
-import mobi.f2time.dorado.rest.annotation.Controller;
-import mobi.f2time.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.Path;
 
 /**
  * @author weiping wang
