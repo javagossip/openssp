@@ -24,15 +24,15 @@ import ai.houyi.openssp.model.example.AdPositionExample;
  *
  */
 public interface AdPositionService {
-	void saveOrUpdateAdPosition(AdPosition adPosition);
-
 	void deleteAdPosition(int adPositionId);
 
-	AdPosition loadAdPosition(int adPositionId);
-
-	PageResult<AdPosition> listAdPositions(int pageNo, int pageSize, AdPositionExample _example);
+	PageResult<AdPosition> listAdPositions(int pageNo);
 
 	PageResult<AdPosition> listAdPositions(int pageNo, int pageSize);
 
-	PageResult<AdPosition> listAdPositions(int pageNo);
+	PageResult<AdPosition> listAdPositions(int pageNo, int pageSize, AdPositionExample _example);
+
+	AdPosition loadAdPosition(int adPositionId);
+
+	void saveOrUpdateAdPosition(AdPosition adPosition);
 }
