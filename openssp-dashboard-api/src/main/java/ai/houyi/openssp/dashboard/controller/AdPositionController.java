@@ -15,8 +15,18 @@
  */
 package ai.houyi.openssp.dashboard.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ai.houyi.dorado.rest.annotation.Controller;
+import ai.houyi.dorado.rest.annotation.GET;
+import ai.houyi.dorado.rest.annotation.POST;
 import ai.houyi.dorado.rest.annotation.Path;
+import ai.houyi.dorado.rest.annotation.PathVariable;
+import ai.houyi.dorado.rest.annotation.RequestBody;
+import ai.houyi.openads.commons.PageResult;
+import ai.houyi.openssp.core.service.AdPositionService;
+import ai.houyi.openssp.dashboard.model.AdPositionSearchReq;
+import ai.houyi.openssp.model.AdPosition;
 
 /**
  * @author weiping wang
@@ -25,5 +35,30 @@ import ai.houyi.dorado.rest.annotation.Path;
 @Controller
 @Path("/adposition")
 public class AdPositionController {
+	@Autowired
+	private AdPositionService adPositionService;
 
+	@POST
+	@Path
+	public void saveOrUpdateAdPosition(@RequestBody AdPosition adPosition) {
+		adPositionService.saveOrUpdateAdPosition(adPosition);
+	}
+
+	@GET
+	@Path("/{adPositionId}")
+	public AdPosition getAdPosition(@PathVariable int adPositionId) {
+		return adPositionService.loadAdPosition(adPositionId);
+	}
+
+	@POST
+	@Path("/list")
+	public PageResult<AdPosition> listAdPositions(@RequestBody AdPositionSearchReq searchReq) {
+		return adPositionService.listAdPositions(searchReq.getPageNo(), searchReq.getPageSize(), searchReq.toExample());
+	}
+	
+	@POST
+	@Path("/{adPositionId}")
+	public void deleteAdPosition(@PathVariable int adPositionId) {
+		adPositionService.deleteAdPosition(adPositionId);
+	}
 }

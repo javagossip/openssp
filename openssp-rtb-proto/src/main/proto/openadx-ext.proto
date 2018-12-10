@@ -1,0 +1,6 @@
+option java_outer_classname = "OpenAdxExt";
+
+package openadx;
+
+import "openrtb/openrtb.proto";
+

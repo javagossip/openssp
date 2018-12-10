@@ -19,5 +19,6 @@
 		<module>openssp-dashboard-api</module>
 		<module>openssp-core</module>
 		<module>openssp-router</module>
+		<module>openssp-rtb-proto</module>
 	</modules>
 </project>

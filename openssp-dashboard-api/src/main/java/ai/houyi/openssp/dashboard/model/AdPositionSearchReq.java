@@ -13,20 +13,32 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.dashboard;
+package ai.houyi.openssp.dashboard.model;
 
-import org.springframework.boot.SpringApplication;
+import org.apache.commons.lang3.StringUtils;
 
-import ai.houyi.dorado.springboot.DoradoSpringBootApplication;
+import ai.houyi.openssp.model.example.AdPositionExample;
 
 /**
- * @author weiping wang
- *
+ * 
+ * @author wangwp
  */
-@DoradoSpringBootApplication
-public class Application {
+public class AdPositionSearchReq extends SearchReq {
+	private String name;
+	private Integer type;
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+	public AdPositionExample toExample() {
+		AdPositionExample example = new AdPositionExample();
+		AdPositionExample.Criteria criteria = example.createCriteria();
+
+		if (StringUtils.isNotBlank(name)) {
+			criteria.andNameLike("%" + name + "%");
+		}
+		
+		if (type != null) {
+			criteria.andTypeEqualTo(type);
+		}
+
+		return example;
 	}
 }
