@@ -1,6 +1,18 @@
 option java_outer_classname = "OpenAdxExt";
+option java_package = "ai.houyi.openssp.rtb.proto";
 
 package openadx;
 
-import "openrtb/openrtb.proto";
+import "openrtb.proto";
 
+
+extend openrtb.BidResponse.SeatBid.Bid {
+    optional BidExt ext = 201;
+}
+
+message BidExt {
+	//曝光监测地址，支持宏
+    repeated string imp_trackers = 1;
+    //点击监测地址，支持宏
+    repeated string clk_trackers = 2;
+}

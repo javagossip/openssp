@@ -20,5 +20,6 @@
 		<module>openssp-core</module>
 		<module>openssp-router</module>
 		<module>openssp-rtb-proto</module>
+		<module>openssp-adserving</module>
 	</modules>
 </project>

@@ -5,14 +5,7 @@
     <artifactId>openssp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>openssp-router</artifactId>
-  <name>openssp-router</name>
-  <description>router module for openssp</description>
-  <dependencies>
-  	<dependency>
-  		<groupId>ai.houyi</groupId>
-  		<artifactId>openssp-dao</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+  <artifactId>openssp-adserving</artifactId>
+  <name>openssp-adserving</name>
+  <description>openssp-adserving module</description>
 </project>

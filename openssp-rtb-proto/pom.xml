@@ -8,4 +8,33 @@
   <artifactId>openssp-rtb-proto</artifactId>
   <name>openssp-rtb-proto</name>
   <description>openssp rtb proto definition</description>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.github.os72</groupId>
+				<artifactId>protoc-jar-maven-plugin</artifactId>
+				<version>2.6.1.4</version>
+				<configuration>
+					<protocVersion>2.6.1</protocVersion>
+					<includeStdTypes>true</includeStdTypes>
+					<inputDirectories>
+						<include>src/main/proto</include>
+					</inputDirectories>
+					<!-- <includeDirectories>
+						<include>src/main/google/protobuf</include>
+					</includeDirectories> -->
+					<outputDirectory>src/main/java</outputDirectory>
+					<cleanOutputFolder>true</cleanOutputFolder>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
