@@ -15,11 +15,14 @@
  */
 package ai.houyi.openssp.adserving.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ai.houyi.dorado.rest.annotation.Controller;
 import ai.houyi.dorado.rest.annotation.Path;
 import ai.houyi.dorado.rest.annotation.RequestBody;
 import ai.houyi.openssp.adserving.model.AdRequest;
 import ai.houyi.openssp.adserving.model.AdResponse;
+import ai.houyi.openssp.adserving.service.AdServeService;
 
 /**
  * 
@@ -28,7 +31,9 @@ import ai.houyi.openssp.adserving.model.AdResponse;
 @Controller
 @Path("/adserve")
 public class AdServeController {
-
+	@Autowired
+	private AdServeService adServeService;
+	
 	@Path("/ad/imp")
 	public void impAd() {
 	}
@@ -39,6 +44,6 @@ public class AdServeController {
 
 	@Path("/ads")
 	public AdResponse getAds(@RequestBody AdRequest adReq) {
-		return null;
+		return adServeService.getAds(adReq);
 	}
 }

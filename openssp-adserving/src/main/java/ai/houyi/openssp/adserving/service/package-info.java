@@ -13,21 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package ai.houyi.openssp.adserving;
-
-import org.springframework.boot.SpringApplication;
-
-import ai.houyi.dorado.springboot.DoradoSpringBootApplication;
-
 /**
- * Ad server启动程序
  * 
  * @author wangwp
  */
-@DoradoSpringBootApplication
-public class Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-}
+package ai.houyi.openssp.adserving.service;
