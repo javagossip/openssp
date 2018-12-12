@@ -14,5 +14,10 @@
   		<artifactId>openssp-dao</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>ai.houyi</groupId>
+  		<artifactId>openssp-rtb-proto</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>

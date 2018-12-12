@@ -8,4 +8,10 @@
   <artifactId>openssp-adserving</artifactId>
   <name>openssp-adserving</name>
   <description>openssp-adserving module</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>ai.houyi</groupId>
+  		<artifactId>dorado-spring-boot-starter</artifactId>
+  	</dependency>
+  </dependencies>
 </project>
